@@ -1,0 +1,31 @@
+﻿# MacKay 信息论课程镜像下载清单（已完成 2026-08-02）
+课程：Information Theory, Pattern Recognition, and Neural Networks (Cambridge 2012)
+主讲：David J.C. MacKay · 官方源：https://inference.org.uk/itprnn_lectures/
+
+## 视频 17/17 ✅（共 11.26 GB）
+00_mackay.f4v  46M   Bonus: Counting trees
+01_mackay.mp4 675M   Introduction to Information Theory
+02_mackay.mp4 564M   Entropy and Data Compression (I)
+03_mackay.mp4 561M   Entropy and Data Compression (II)
+04_mackay.mp4 605M   Entropy and Data Compression (III)
+05_mackay.mp4 670M   Entropy and Data Compression (IV)
+06_mackay.mp4 588M   Noisy Channel Coding (I)
+07_mackay.mp4 499M   Noisy Channel Coding (II)
+08_mackay.mp4 745M   Noisy Channel Coding (III)
+09_mackay.mp4 535M   Bayesian Inference (I)
+10_mackay.mp4 825M   Bayesian Inference (II)
+11_mackay.mp4 629M   Clustering As Inference
+12_mackay.mp4 908M   Monte Carlo Methods (I)
+13_mackay.mp4 1168M  Monte Carlo Methods (II)
+14_mackay.mp4 512M   Variational Methods
+15_mackay.mp4 950M   Neural Networks (I)
+16_mackay.mp4 1048M  Neural Networks (II)
+
+## 快照 17/17 ✅（Snapshots/ 目录，每讲板书快照 PDF）
+00-16_mackay.pdf，共约 620 MB
+
+## 讲义 17 讲 ✅（../讲义/slides/ 目录，MagicPoint HTML + PNG）
+l1-l16 + prufer，共 356 页
+
+## 教材 ✅（../教材/ 目录）
+book.pdf 11.7MB + book.epub 1.3MB（官方免费正版）
