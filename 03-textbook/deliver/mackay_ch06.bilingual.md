@@ -57,9 +57,9 @@ T H E R E - I S - N O - R E V E R S E - O N - A - M O T O R C Y C L E -
 
 也可以把实直线 $[0,1)$ 分成 $I$ 个长度等于 $P(x_1=a_i)$ 的区间（图 6.2）。然后把每个区间 $a_i$ 细分为 $a_ia_1,a_ia_2,\dots,a_ia_I$，使 $a_ia_j$ 的长度正比于 $P(x_2=a_j\mid x_1=a_i)$。事实上区间 $a_ia_j$ 的长度恰为联合概率
 
-$$
+```math
 P(x_1=a_i,x_2=a_j)=P(x_1=a_i)P(x_2=a_j\mid x_1=a_i). \tag{6.1}
-$$
+```
 
 迭代此过程，$[0,1)$ 可以分成对应所有可能有限长串 $x_1x_2\dots x_N$ 的区间序列——每个区间的长度等于给定模型下该串的概率。
 
@@ -78,29 +78,29 @@ $$
 
 **描述算术编码的公式。** 图 6.2 所示过程可以显式写出。区间由下、上累积概率定义：
 
-$$
+```math
 Q_n(a_i\mid x_1,\dots,x_{n-1})\equiv\sum_{i'=1}^{i-1}P(x_n=a_{i'}\mid x_1,\dots,x_{n-1}), \tag{6.2}
-$$
+```
 
-$$
+```math
 R_n(a_i\mid x_1,\dots,x_{n-1})\equiv\sum_{i'=1}^{i}P(x_n=a_{i'}\mid x_1,\dots,x_{n-1}). \tag{6.3}
-$$
+```
 
 <!-- p.126 -->
 
 第 $n$ 个符号到达时，我们在由 $Q_n,R_n$ 定义的点细分第 $n-1$ 个区间。例如从第一个符号开始，区间「a1」「a2」「aI」为：
 
-$$
+```math
 a_1\leftrightarrow[Q_1(a_1),R_1(a_1))=[0,P(x_1=a_1)), \tag{6.4}
-$$
+```
 
-$$
+```math
 a_2\leftrightarrow[Q_1(a_2),R_1(a_2))=[P(x=a_1),\,P(x=a_1)+P(x=a_2)), \tag{6.5}
-$$
+```
 
-$$
+```math
 a_I\leftrightarrow[Q_1(a_I),R_1(a_I))=[P(x_1=a_1)+\dots+P(x_1=a_{I-1}),\,1.0). \tag{6.6}
-$$
+```
 
 算法 6.3 描述一般程序。要编码串 $x_1x_2\dots x_N$，定位对应 $x_1x_2\dots x_N$ 的区间，并发送一个区间位于其内的二进制串。此编码可以 on the fly（边接收边）进行，如下例所示。
 
@@ -144,9 +144,9 @@ $$
 
 **概率模型如何做预测。** 算术编码技术不强迫以任何特定方式产生预测概率，但预测分布自然地可由 Bayesian model（贝叶斯模型）产生。图 6.4 用一个简单模型生成：总给「2」指派概率 0.15，其余 0.85 分给 $a$ 与 $b$，按 Laplace's rule（拉普拉斯法则）给出的比例分配：
 
-$$
+```math
 P_{\mathrm{L}}(a\mid x_1,\dots,x_{n-1})=\frac{F_a+1}{F_a+F_b+2}, \tag{6.7}
-$$
+```
 
 其中 $F_a(x_1,\dots,x_{n-1})$ 是至今 $a$ 出现的次数，$F_b$ 是 $b$ 的计数。这些预测对应一个简单贝叶斯模型：它预期并适应文件内源符号 $a,b$ 使用频率的不相等。
 
@@ -160,25 +160,25 @@ $$
 
 1. 假设串长 $l$ 有指数概率分布
 
-$$
+```math
 P(l)=(1-p_{\mathbf{2}})^lp_{\mathbf{2}}. \tag{6.8}
-$$
+```
 
 此分布对应假设每个字符处以常数概率 $p_{\mathbf{2}}$ 出现终止符号「2」。
 
 2. 假设串中的非终止字符独立地随机选自概率 $P=\{p_a,p_b\}$ 的系综；$p_a$ 在整个串内固定为 0 到 1 间某个未知值。给定 $p_a$（若我们知道的话），下一符号为 $a$ 的概率是 $(1-p_{\mathbf{2}})p_a$。给定 $p_a$，长度 $F$ 的未终止串为特定串 $s$（含 $\{F_a,F_b\}$ 两种计数）的概率是 Bernoulli distribution（伯努利分布）：
 
-$$
+```math
 P(s\mid p_a,F)=p_a^{F_a}(1-p_a)^{F_b}. \tag{6.9}
-$$
+```
 
 <!-- p.129 -->
 
 3. 假设 $p_a$ 均匀先验：
 
-$$
+```math
 P(p_a)=1,\qquad p_a\in[0,1], \tag{6.10}
-$$
+```
 
 定义 $p_b\equiv1-p_a$。对 $p_a$ 也容易假设其他先验，beta distributions（贝塔分布）最便于处理。
 
@@ -188,15 +188,15 @@ $$
 **Huffman-with-header（带头部的 Huffman）**：读整个文件，求每个符号的经验频率，为那些频率构造 Huffman 码，通过传输 Huffman 码字的长度来传输码，然后用 Huffman 码传输文件。（实际码字无须传输：给定码长可用确定性方法建树。）
 **用 Laplace 模型的算术码**：
 
-$$
+```math
 P_{\mathrm{L}}(a\mid x_1,\dots,x_{n-1})=\frac{F_a+1}{\sum_{a'}(F_{a'}+1)}. \tag{6.11}
-$$
+```
 
 **用 Dirichlet 模型的算术码**：此模型的预测为
 
-$$
+```math
 P_{\mathrm{D}}(a\mid x_1,\dots,x_{n-1})=\frac{F_a+\alpha}{\sum_{a'}(F_{a'}+\alpha)}, \tag{6.12}
-$$
+```
 
 $\alpha$ 固定为某个数如 0.01。小的 $\alpha$ 对应更 responsive（响应更快）的 Laplace 模型：字符上的概率预期更不均匀；$\alpha=1$ 复现 Laplace 模型。
 注意 Huffman 消息的头部必须 self-delimiting（自定界）。值得考虑的特殊情形：(a) 只有几百字符的短文件；(b) 某些字符从不出现的大文件。</span>
@@ -220,15 +220,15 @@ $\alpha$ 固定为某个数如 0.01。小的 $\alpha$ 对应更 responsive（响
 
 Writing（书写）可视为数据压缩的 inverse process（逆过程）。压缩：
 
-$$
+```math
 \text{text 文本} \longrightarrow \text{bits 比特}
-$$
+```
 
 书写：
 
-$$
+```math
 \text{text 文本} \longrightarrow \text{gestures 手势}
-$$
+```
 
 压缩中，目标是把给定文本串映射到少量比特；文本录入中，我们要用小的手势序列产生想要的文本。
 
@@ -354,7 +354,9 @@ $$
 > <span style="color:#2471a3;">**[译者注]** 原书边注：渴望学习有噪信道的读者可以跳过以下习题。</span>
 
 > <span style="color:#00838f;">**[习题 6.14]** [3, p.130] 考虑 $N$ 维高斯分布
-> $$P(x)=\frac{1}{(2\pi\sigma^2)^{N/2}}\exp\Bigl(-\sum_n\frac{x_n^2}{2\sigma^2}\Bigr). \tag{6.13}$$
+> ```math
+> P(x)=\frac{1}{(2\pi\sigma^2)^{N/2}}\exp\Bigl(-\sum_n\frac{x_n^2}{2\sigma^2}\Bigr). \tag{6.13}
+> ```
 > 定义点 $x$ 的 radius（半径）为 $r=(\sum_nx_n^2)^{1/2}$。估计半径平方 $r^2=(\sum_nx_n^2)$ 的均值与方差。可用积分 $\int\mathrm{d}x\,\frac{1}{(2\pi\sigma^2)^{1/2}}x^4\exp(-\frac{x^2}{2\sigma^2})=3\sigma^4$ (6.14)，不过不做积分也应能估计所需量。设 $N$ 大，证明高斯的几乎全部概率包含在半径 $\sqrt{N}\sigma$ 的薄壳中；求壳的厚度。在高斯薄壳内一点与原点 $x=0$ 处求概率密度 (6.13) 并比较；以 $N=1000$ 为例。注意：几乎全部概率质量所在的空间部分与概率密度最高的区域不同。</span>
 
 > <span style="color:#00838f;">**[习题 6.15]** [2] 解释 optimal binary symbol code（最优二元符号码）的含义。为系综 $\mathcal{A}=\{a,\dots,j\}$（十个符号）与概率 $P=\{\frac{1}{100},\frac{2}{100},\frac{4}{100},\frac{5}{100},\frac{6}{100},\frac{8}{100},\dots\}$（其余见原书 p.125）找最优二元符号码。</span>
@@ -363,29 +365,29 @@ $$
 
 <span style="color:#00838f;">**[解 6.14]** 对一维高斯，$x$ 的方差 $\mathbb{E}[x^2]$ 是 $\sigma^2$。由于 $x$ 的分量是独立随机变量，$N$ 维中 $r^2$ 的均值为
 
-$$
+```math
 \mathbb{E}[r^2]=N\sigma^2. \tag{6.25}
-$$
+```
 
 $r^2$ 的方差同样是 $x^2$ 的方差的 $N$ 倍（$x$ 为一维高斯变量）：
 
-$$
+```math
 \mathrm{var}(x^2)=\int\mathrm{d}x\,\frac{1}{(2\pi\sigma^2)^{1/2}}x^4\exp\Bigl(-\frac{x^2}{2\sigma^2}\Bigr)-\sigma^4. \tag{6.26}
-$$
+```
 
 该积分求得为 $3\sigma^4$（方程 (6.14)），所以 $\mathrm{var}(x^2)=2\sigma^4$，$r^2$ 的方差是 $2N\sigma^4$。
 对大 $N$，中心极限定理表明 $r^2$ 有高斯分布：均值 $N\sigma^2$、标准差 $\sqrt{2N}\sigma^2$，所以 $r$ 的概率密度同样集中在 $r\simeq\sqrt{N}\sigma$ 附近。壳的厚度：把 $r^2$ 的标准差转化为 $r$ 的标准差——对小的 $\delta r/r$，$\delta\log r=\delta r/r=\frac{1}{2}\delta\log r^2=\frac{1}{2}\delta(r^2)/r^2$，令 $\delta(r^2)=\sqrt{2N}\sigma^2$，得 $r$ 的标准差 $\delta r=\frac{1}{2}r\,\delta(r^2)/r^2=\sigma/\sqrt{2}$。
 高斯在壳上点 $x_{\mathrm{shell}}$（$r=\sqrt{N}\sigma$）处的概率密度为
 
-$$
+```math
 P(x_{\mathrm{shell}})=\frac{1}{(2\pi\sigma^2)^{N/2}}\exp\Bigl(-\frac{N\sigma^2}{2\sigma^2}\Bigr)=\frac{1}{(2\pi\sigma^2)^{N/2}}\exp\Bigl(-\frac{N}{2}\Bigr). \tag{6.27}
-$$
+```
 
 而原点处概率密度为
 
-$$
+```math
 P(x=0)=\frac{1}{(2\pi\sigma^2)^{N/2}}. \tag{6.28}
-$$
+```
 
 于是 $P(x_{\mathrm{shell}})/P(x=0)=\exp(-N/2)$：典型半径处的概率密度比原点处小 $e^{-N/2}$ 倍。$N=1000$ 时原点处的概率密度大 $e^{500}$ 倍。</span>
 

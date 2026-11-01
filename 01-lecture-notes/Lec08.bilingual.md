@@ -184,7 +184,7 @@ P(y{=}\mathrm{H}\,|\,x{=}\mathrm{G}) = 1/3;
 
 <span style="color:#2471a3;">**[section]**</span> 证明好码存在的两条路线：
 
-- **构造性证明（constructive proof）**：给定所需码率 $R<C$ 与 $\epsilon>0$（Given required $R<C$, and $\epsilon>0$），取一个（伪）随机校验矩阵 $\mathbf{H}$——图中画出其开头三行（绿色 0/1 数字）：
+- **构造性证明（constructive proof）**：给定所需码率 $R\lt C$ 与 $\epsilon>0$（Given required $R\lt C$, and $\epsilon>0$），取一个（伪）随机校验矩阵 $\mathbf{H}$——图中画出其开头三行（绿色 0/1 数字）：
 
 ```math
 \begin{bmatrix}
@@ -291,7 +291,7 @@ Answer: 1/2（答案：$\frac12$）
 
 图中画出 $\mathbf{H}$ 的示意结构：$M$ 行随机行向量 $\mathbf{h}^{(1)}, \mathbf{h}^{(2)}, \ldots$ 堆叠而成，每行左右各画一个箭头（$\leftarrow\ \mathbf{h}^{(1)}\ \rightarrow$ 等），行间以竖排省略号 $\vdots$ 省略；右侧红色标注 $\updownarrow\ M$（行数 $M$），下方红色标注 $\leftrightarrow\ N$（每行长度 $N$）。
 
-> <span style="color:#1e8449;">**[note] Note（译者注）:** 把 p.19–21 的问答串起来，就是随机编码论证的引擎。第一步（p.19–20）：$\mathbf{x}\ne\mathbf{0}$ 时，$\mathbf{h}^\mathsf{T}\mathbf{x}=\sum_i h_i x_i$ 只在 $\mathbf{x}$ 的支撑位上求和；支撑位上的 $h_i$ 都是公平硬币，其奇偶和为 0 与为 1 各占一半，故概率恰为 $1/2$——这是"固定向量撞上随机超平面"的基本事实，也是凸几何里证明 KL 非负之外的另一类对称性论证。第二步（本页）：$M$ 行相互独立，每行单独"打中"的概率都是 $1/2$，于是 $P(\mathbf{Hx}=\mathbf{0})=2^{-M}$。现在数一数：典型噪声向量约有 $2^{NH_2(f)}$ 个，随机 $\mathbf{H}$ 把其中任何一个"送进零空间"的概率是 $2^{-M}$，故期望错误概率约为 $2^{NH_2(f)-M}=2^{-N(1-H_2(f)-R)}$（码率 $R=1-M/N$）。只要 $R<C=1-H_2(f)$，指数就是负的，错误随 $N$ 指数消失。一句话：容量＝1 减去噪声熵，这正是 BSC 容量 $C=1-H_2(f)$ 的来历。</span>
+> <span style="color:#1e8449;">**[note] Note（译者注）:** 把 p.19–21 的问答串起来，就是随机编码论证的引擎。第一步（p.19–20）：$\mathbf{x}\ne\mathbf{0}$ 时，$\mathbf{h}^\mathsf{T}\mathbf{x}=\sum_i h_i x_i$ 只在 $\mathbf{x}$ 的支撑位上求和；支撑位上的 $h_i$ 都是公平硬币，其奇偶和为 0 与为 1 各占一半，故概率恰为 $1/2$——这是"固定向量撞上随机超平面"的基本事实，也是凸几何里证明 KL 非负之外的另一类对称性论证。第二步（本页）：$M$ 行相互独立，每行单独"打中"的概率都是 $1/2$，于是 $P(\mathbf{Hx}=\mathbf{0})=2^{-M}$。现在数一数：典型噪声向量约有 $2^{NH_2(f)}$ 个，随机 $\mathbf{H}$ 把其中任何一个"送进零空间"的概率是 $2^{-M}$，故期望错误概率约为 $2^{NH_2(f)-M}=2^{-N(1-H_2(f)-R)}$（码率 $R=1-M/N$）。只要 $R\lt C=1-H_2(f)$，指数就是负的，错误随 $N$ 指数消失。一句话：容量＝1 减去噪声熵，这正是 BSC 容量 $C=1-H_2(f)$ 的来历。</span>
 
 ### p.22 〔Binary erasure channel（二进制擦除信道）〕
 

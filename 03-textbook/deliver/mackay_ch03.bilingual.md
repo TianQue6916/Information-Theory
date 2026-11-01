@@ -6,9 +6,9 @@
 
 作为一名物理学家（Paul Mackay 的自述——译者按：本书作者 David MacKay 借同事 Steve 之口叙述），我被一个物理问题难住了。无线电外科医生 Steve Gull 递给我一个考古学问题（实际为：铀系测年中测得若干衰变长度数据——译者按），其形式如下：宇宙线成分测量得到 $N$ 个数值 $\{x_n\}_{n=1}^N$（单位 cm），人们相信它们来自一个 exponential distribution（指数分布）
 
-$$
+```math
 \mathrm{probability}(x\mid\lambda)=\begin{cases}\frac{1}{\lambda}e^{-x/\lambda} & 0\le x<\infty\\ 0 & x<0,\end{cases}
-$$
+```
 
 <!-- p.60 -->
 
@@ -24,25 +24,25 @@ $$
 
 Steve 写下了给定 $\lambda$ 时单个数据点的概率：
 
-$$
+```math
 P(x\mid\lambda)=\begin{cases}\frac{1}{\lambda}e^{-x/\lambda}/Z(\lambda) & 1<x<20\\ 0 & \text{otherwise}\end{cases} \tag{3.1}
-$$
+```
 
 其中
 
-$$
+```math
 Z(\lambda)=\int_1^{20}\mathrm{d}x\,\frac{1}{\lambda}e^{-x/\lambda}=e^{-1/\lambda}-e^{-20/\lambda}. \tag{3.2}
-$$
+```
 
 这看上去足够显然。然后他写下 Bayes' theorem（贝叶斯定理）：
 
-$$
+```math
 P(\lambda\mid\{x_1,\dots,x_N\})=\frac{P(\{x\}\mid\lambda)P(\lambda)}{P(\{x\})} \tag{3.3}
-$$
+```
 
-$$
+```math
 \propto\frac{1}{(\lambda Z(\lambda))^N}\exp\Bigl(-\sum_{1}^{N}x_n/\lambda\Bigr)P(\lambda). \tag{3.4}
-$$
+```
 
 突然之间，定义「给定假设 $\lambda$ 时数据的概率」的直白分布 $P(\{x_1,\dots,x_N\}\mid\lambda)$ 被 turn on its head（翻了个个儿），用来定义「给定数据时假设的概率」。一张简单的图把单数据点的概率 $P(x\mid\lambda)$ 画成 $x$ 的熟悉函数（对不同的 $\lambda$，图 3.1）。每条曲线都是无害的指数，归一化面积为 1。把同一个函数固定 $x$ 画成 $\lambda$ 的函数时，非凡的事情发生了：一个 peak（峰）浮现出来（图 3.2）。把同一函数画成 $x$ 与 $\lambda$ 的二元曲面（图 3.3）有助于理解这一个函数的两个视角。
 
@@ -68,17 +68,17 @@ Steve 把贝叶斯定理概括为：
 
 第一，一旦做出假设，推断就是 objective（客观）且唯一的：任何拥有相同信息、做出相同假设的人都会以完全一致的方式重现它。例如给定上面列出的假设 $H$ 与数据 $D$，每个人都会对衰变长度 $\lambda$ 的后验概率达成一致：
 
-$$
+```math
 P(\lambda\mid D,H)=\frac{P(D\mid\lambda,H)P(\lambda\mid H)}{P(D\mid H)}. \tag{3.5}
-$$
+```
 
 第二，假设显式化后更容易批评、更容易修改——事实上我们可以量化推断对假设细节的 sensitivity（敏感性）。例如从图 3.2 的似然曲线可以注意到：单数据点 $x=5$ 时似然函数的峰不如 $x=3$ 时尖锐；样本均值 $\bar{x}$ 越接近窗口中点 10.5，先验 $P(\lambda)$ 的细节越重要。$x=12$ 的情形，似然函数根本没有峰——这样的数据只排除小的 $\lambda$ 值，对大 $\lambda$ 值的相对概率不给出任何信息。所以此时小 $\lambda$ 端的先验细节不重要，但大 $\lambda$ 端的先验重要。
 
 第三，当我们不确定哪个备选假设最适合问题时，可以把这个问题当作另一个推断任务。给定数据 $D$，可以用贝叶斯定理比较备选假设 $H$：
 
-$$
+```math
 P(H\mid D,I)=\frac{P(D\mid H,I)P(H\mid I)}{P(D\mid I)}, \tag{3.6}
-$$
+```
 
 <!-- p.63 -->
 
@@ -86,9 +86,9 @@ $$
 
 第四，做后续预测时可以计入我们对这类假设的不确定性。与其选择某个特定假设 $H^*$ 并计算对某量 $t$ 的预测 $P(t\mid D,H^*,I)$，不如用求和规则得到计入 $H$ 不确定性的预测：
 
-$$
+```math
 P(t\mid D,I)=\sum_HP(t\mid D,H,I)P(H\mid D,I). \tag{3.7}
-$$
+```
 
 这是与正统统计学的又一对比：正统统计学习惯「检验」一个 default model（默认模型），然后若检验在某个「significance level（显著性水平）」下「接受模型」，就只用该模型做预测。
 
@@ -108,15 +108,15 @@ bent coin（不对称硬币）被抛 $F$ 次；我们观察到正反面序列 $s
 
 我们把假设命名为 $H_1$。[一会儿将引入另一组假设。]给定 $p_a$，$F$ 次抛掷产生含 $\{F_a,F_b\}$ 两种计数的结果序列 $s$ 的概率为
 
-$$
+```math
 P(s\mid p_a,F,H_1)=p_a^{F_a}(1-p_a)^{F_b}. \tag{3.8}
-$$
+```
 
 [例如 $P(s=aaba\mid p_a,F=4,H_1)=p_ap_a(1-p_a)p_a$。]第一个模型假设 $p_a$ 均匀先验：
 
-$$
+```math
 P(p_a\mid H_1)=1,\qquad p_a\in[0,1], \tag{3.9}
-$$
+```
 
 且 $p_b\equiv1-p_a$。
 
@@ -130,21 +130,21 @@ $a$ 还是 $b$。[预测总以概率表达。「预测下一个字符是否为 $
 
 设 $H_1$ 为真，给定长度 $F$、计数 $\{F_a,F_b\}$ 的字符串 $s$，$p_a$ 的后验概率由贝叶斯定理：
 
-$$
+```math
 P(p_a\mid s,F,H_1)=\frac{P(s\mid p_a,F,H_1)P(p_a\mid H_1)}{P(s\mid F,H_1)}. \tag{3.10}
-$$
+```
 
 作为 $p_a$ 的函数，因子 $P(s\mid p_a,F,H_1)$ 称为 likelihood function（似然函数），由方程 (3.8) 给出；先验 $P(p_a\mid H_1)$ 由 (3.9) 给出。我们对 $p_a$ 的推断为：
 
-$$
+```math
 P(p_a\mid s,F,H_1)=\frac{p_a^{F_a}(1-p_a)^{F_b}}{P(s\mid F,H_1)}. \tag{3.11}
-$$
+```
 
 归一化常数由 beta integral（贝塔积分）给出：
 
-$$
+```math
 P(s\mid F,H_1)=\int_0^1\mathrm{d}p_a\,p_a^{F_a}(1-p_a)^{F_b}=\frac{\Gamma(F_a+1)\Gamma(F_b+1)}{\Gamma(F_a+F_b+2)}=\frac{F_a!\,F_b!}{(F_a+F_b+1)!}. \tag{3.12}
-$$
+```
 
 <span style="color:#00838f;">**[习题 3.5]** [2, p.59] 画出后验概率 $P(p_a\mid s=aba,F=3)$ 的草图。$p_a$ 的最可能值（即最大化后验概率密度的值）是多少？此分布下 $p_a$ 的均值是多少？对后验概率 $P(p_a\mid s=bbb,F=3)$ 回答同样的问题。
 
@@ -152,19 +152,23 @@ $$
 
 **从推断到预测（From inferences to predictions）。** 关于下一次抛掷的预测——下一次为 $a$ 的概率——通过对 $p_a$ 积分得到。这相当于在预测时计入我们对 $p_a$ 的不确定性。由求和规则：
 
-$$
+```math
 P(a\mid s,F)=\int\mathrm{d}p_a\,P(a\mid p_a)P(p_a\mid s,F). \tag{3.13}
-$$
+```
 
 给定 $p_a$ 时 $a$ 的概率就是 $p_a$，所以
 
-$$
-\begin{aligned}
-P(a\mid s,F)&=\int\mathrm{d}p_a\,p_a\,\frac{p_a^{F_a}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.14}\\
-&=\int\mathrm{d}p_a\,\frac{p_a^{F_a+1}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.15}\\
-&=\Bigl[\frac{(F_a+1)!\,F_b!}{(F_a+F_b+2)!}\Bigr]\Bigl[\frac{F_a!\,F_b!}{(F_a+F_b+1)!}\Bigr]^{-1}=\frac{F_a+1}{F_a+F_b+2}, \tag{3.16}
-\end{aligned}
-$$
+```math
+P(a\mid s,F)=\int\mathrm{d}p_a\,p_a\,\frac{p_a^{F_a}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.14}
+```
+
+```math
+\phantom{P(a\mid s,F)}=\int\mathrm{d}p_a\,\frac{p_a^{F_a+1}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.15}
+```
+
+```math
+\phantom{P(a\mid s,F)}=\Bigl[\frac{(F_a+1)!\,F_b!}{(F_a+F_b+2)!}\Bigr]\Bigl[\frac{F_a!\,F_b!}{(F_a+F_b+1)!}\Bigr]^{-1}=\frac{F_a+1}{F_a+F_b+2}, \tag{3.16}
+```
 
 这就是著名的 Laplace's rule（拉普拉斯法则）。
 
@@ -178,31 +182,31 @@ $$
 
 **作为推断的模型比较（Model comparison as inference）。** 为做模型比较，再写一次贝叶斯定理，但这次左边换成别的论元。我们想知道给定数据时 $H_1$ 的概率：
 
-$$
+```math
 P(H_1\mid s,F)=\frac{P(s\mid F,H_1)P(H_1)}{P(s\mid F,H_0)P(H_0)+P(s\mid F,H_1)P(H_1)}. \tag{3.17}
-$$
+```
 
 注意两个模型在数据下的 marginal likelihood（边缘似然）或 evidence（证据）：
 
-$$
+```math
 P(s\mid F,H_1)=\int\mathrm{d}p_a\,p_a^{F_a}(1-p_a)^{F_b}\frac{1}{1}=\frac{F_a!\,F_b!}{(F_a+F_b+1)!}. \tag{3.18}
-$$
+```
 
 （对 $H_1$，似然对唯一参数 $p_a$ 边缘化。）对模型 $H_0$（没有自由参数可推断），定义 $p_0=1/6$：
 
-$$
+```math
 P(s\mid F,H_0)=p_0^{F_a}(1-p_0)^{F_b}. \tag{3.20}
-$$
+```
 
 于是模型 $H_1$ 相对模型 $H_0$ 的后验概率比为
 
-$$
+```math
 \frac{P(H_1\mid s,F)}{P(H_0\mid s,F)}=\frac{P(s\mid F,H_1)P(H_1)}{P(s\mid F,H_0)P(H_0)} \tag{3.21}
-$$
+```
 
-$$
+```math
 =\frac{F_a!\,F_b!}{(F_a+F_b+1)!}\bigg/p_0^{F_a}(1-p_0)^{F_b}. \tag{3.22}
-$$
+```
 
 <!-- p.66 -->
 
@@ -227,9 +231,9 @@ $$
 
 > <span style="color:#00838f;">**[习题 3.6]** [2] 证明：$F$ 次抛掷之后，对数证据比
 
-$$
+```math
 \log\frac{P(s\mid F,H_1)}{P(s\mid F,H_0)} \tag{3.23}
-$$
+```
 
 若 $H_1$ 更可能，其最大值随 $F$ 线性缩放；而支持 $H_0$ 的对数证据至多按 $\log F$ 增长。</span>
 
@@ -257,29 +261,29 @@ $$
 
 给定 $S$ 时数据的概率是「从人群抽取的一名未知者血型为 AB」的概率：
 
-$$
+```math
 P(D\mid S,H)=p_{\mathrm{AB}} \tag{3.24}
-$$
+```
 
 （给定 $S$，我们已知道一处血迹会是 O 型）。给定 $\bar{S}$ 时数据的概率是「从人群抽取的两名未知者血型为 O 与 AB」的概率：
 
-$$
+```math
 P(D\mid\bar{S},H)=2\,p_{\mathrm{O}}\,p_{\mathrm{AB}}. \tag{3.25}
-$$
+```
 
 这些方程中 $H$ 表示假设：两人在场并留下血迹，且解释中未知者血型的概率分布与人群频率相同。相除得似然比：
 
-$$
+```math
 \frac{P(D\mid S,H)}{P(D\mid\bar{S},H)}=\frac{1}{2p_{\mathrm{O}}}=\frac{1}{2\times0.6}=0.83. \tag{3.26}
-$$
+```
 
 因此数据事实上对「Oliver 在场」的猜想提供了 weak evidence against（微弱的反面证据）。
 
 这个结果可能令人意外，让我们从多个角度考察。先考虑另一嫌疑人 Alberto（AB 型）的情形。直觉上，相对零假设 $\bar{S}$，数据确实提供支持理论 $S'$（此嫌疑人在场）的证据。此情形的似然比为：
 
-$$
+```math
 \frac{P(D\mid S',H)}{P(D\mid\bar{S},H)}=\frac{1}{2\,p_{\mathrm{AB}}}=50. \tag{3.27}
-$$
+```
 
 现在稍微改变情形：设想 99% 的人是 O 型、其余是 AB 型，人群中只有这两种血型。现场数据与之前相同。再考虑这些数据如何影响我们对 O 型嫌疑人 Oliver 与 AB 型嫌疑人 Alberto 的信念。直觉上，我们仍相信罕见 AB 血的存在为「Alberto 在场」提供正面证据。但「现场检出 O 型血」这一事实是否支持「Oliver 在场」的假设？若如此，则无论嫌疑人是谁，数据都会使其更可能在场；人群中的每个人都更受怀疑——这太荒谬了。数据可能与任何血型的任何嫌疑人在场相容，但若数据支持某些理论，就必然反对另一些理论。
 
@@ -289,21 +293,21 @@ $$
 
 也许把一般情形的公式写出来最终有助直觉：找到 $n_{\mathrm{O}}$ 处 O 型血迹与 $n_{\mathrm{AB}}$ 处 AB 型血迹、共 $N$ 人，未知者来自比例 $p_{\mathrm{O}},p_{\mathrm{AB}}$ 的大人群（可能还有其他血型）。任务是求两个假设的似然比：$S$——「O 型嫌疑人（Oliver）与 $N-1$ 名未知者留下 $N$ 处血迹」；$\bar{S}$——「$N$ 名未知者留下 $N$ 处血迹」。假设 $\bar{S}$ 下数据的概率就是从人群随机抽 $N$ 人得 $n_{\mathrm{O}},n_{\mathrm{AB}}$ 两个类型计数的概率：
 
-$$
+```math
 P(n_{\mathrm{O}},n_{\mathrm{AB}}\mid\bar{S})=\frac{N!}{n_{\mathrm{O}}!\,n_{\mathrm{AB}}!}p_{\mathrm{O}}^{n_{\mathrm{O}}}p_{\mathrm{AB}}^{n_{\mathrm{AB}}}. \tag{3.28}
-$$
+```
 
 假设 $S$ 下需要 $N-1$ 名其他个体的分布：
 
-$$
+```math
 P(n_{\mathrm{O}},n_{\mathrm{AB}}\mid S)=\frac{(N-1)!}{(n_{\mathrm{O}}-1)!\,n_{\mathrm{AB}}!}p_{\mathrm{O}}^{n_{\mathrm{O}}-1}p_{\mathrm{AB}}^{n_{\mathrm{AB}}}. \tag{3.29}
-$$
+```
 
 似然比为：
 
-$$
+```math
 \frac{P(n_{\mathrm{O}},n_{\mathrm{AB}}\mid S)}{P(n_{\mathrm{O}},n_{\mathrm{AB}}\mid\bar{S})}=\frac{n_{\mathrm{O}}/N}{p_{\mathrm{O}}}. \tag{3.30}
-$$
+```
 
 这是个有教益的结果：似然比——即这些数据对「Oliver 是否在场」问题的贡献——只是把「他的血型在观察数据中的频率」与「人群中的背景频率」作比较。不依赖现场发现的其他类型血迹的计数，也不依赖它们在人群中的频率。
 
@@ -346,17 +350,17 @@ $$
 
 <span style="color:#00838f;">**[解 3.2]** 给定每个假设时数据的概率：
 
-$$
+```math
 P(D\mid A)=\frac{3}{20}\cdot\frac{1}{20}\cdot\frac{2}{20}\cdot\frac{1}{20}\cdot\frac{3}{20}\cdot\frac{1}{20}\cdot\frac{1}{20}=\frac{18}{20^7};
-$$
+```
 
-$$
+```math
 P(D\mid B)=\frac{2}{20}\cdot\frac{2}{20}\cdot\frac{2}{20}\cdot\frac{2}{20}\cdot\frac{2}{20}\cdot\frac{1}{20}\cdot\frac{2}{20}=\frac{64}{20^7};
-$$
+```
 
-$$
+```math
 P(D\mid C)=\frac{1}{20}\cdot\frac{1}{20}\cdot\frac{1}{20}\cdot\frac{1}{20}\cdot\frac{1}{20}\cdot\frac{1}{20}\cdot\frac{1}{20}=\frac{1}{20^7}.
-$$
+```
 
 所以 $P(A\mid D)=\frac{18}{83}$，$P(B\mid D)=\frac{64}{83}$，$P(C\mid D)=\frac{1}{83}$。
 
@@ -367,28 +371,28 @@ $$
 
 <span style="color:#00838f;">**[解 3.8]** 设 $H_i$ 表示「奖品在门 $i$ 后面」。假设：三个假设 $H_1,H_2,H_3$ 先验等概率，$P(H_1)=P(H_2)=P(H_3)=\frac{1}{3}$ (3.36)。选门 1 后我们收到的数据是 $D=3$ 或 $D=2$ 之一（分别表示门 3 或门 2 被打开）。假设这两个可能结果的概率如下：若奖品在门 1 后，主持人有自由选择权——此时假设他在 $D=2$ 与 $D=3$ 之间随机选择；否则主持人的选择是被迫的，概率为 0 与 1：
 
-$$
+```math
 \begin{aligned}
 P(D=2\mid H_1)&=1/2 & P(D=2\mid H_2)&=0 & P(D=2\mid H_3)&=1\\
 P(D=3\mid H_1)&=1/2 & P(D=3\mid H_2)&=1 & P(D=3\mid H_3)&=0
 \end{aligned} \tag{3.37}
-$$
+```
 
 用贝叶斯定理评估各假设的后验概率：
 
-$$
+```math
 P(H_i\mid D=3)=\frac{P(D=3\mid H_i)P(H_i)}{P(D=3)} \tag{3.38}
-$$
+```
 
-$$
+```math
 P(H_1\mid D=3)=\frac{(1/2)(1/3)}{P(D{=}3)},\quad P(H_2\mid D=3)=\frac{(1)(1/3)}{P(D{=}3)},\quad P(H_3\mid D=3)=\frac{(0)(1/3)}{P(D{=}3)}. \tag{3.39}
-$$
+```
 
 分母 $P(D=3)$ 为 1/2（它是此后验分布的归一化常数）。所以
 
-$$
+```math
 P(H_1\mid D=3)=\frac{1}{3},\qquad P(H_2\mid D=3)=\frac{2}{3},\qquad P(H_3\mid D=3)=0. \tag{3.40}
-$$
+```
 
 参赛者应改选门 2 以获得最大的得奖机会。
 
@@ -396,9 +400,9 @@ $$
 
 <span style="color:#00838f;">**[解 3.9]** 若门 3 被地震打开，推断结果不同——即使视觉场景相同。数据的性质与数据的概率都变了。可能的数据结果首先是「任意几扇门可能飞开」，可标记八个结果 $d=(0,0,0),(0,0,1),(0,1,0),(1,0,0),(0,1,1),\dots,(1,1,1)$；其次，地震打开一扇或多扇门后奖品可能可见。所以数据 $D$ 由 $d$ 的值与「奖品是否被暴露」的陈述组成。这些结果的概率难以确定（依赖我们对门闩可靠性与地震性质的信念），但可以在不点名各 $P(d\mid H_i)$ 的情况下提取所需的后验概率：只有实际发生的 $D$ 值下 $P(D\mid H_1),P(D\mid H_2),P(D\mid H_3)$ 的相对值重要。[这就是似然原理，§2.3 见过。]实际发生的 $D$ 是「$d=(0,0,1)$ 且无奖品可见」。首先 $P(D\mid H_3)=0$ 显然：「无奖品可见」与 $H_3$ 不相容。现在设参赛者选了门 1，$P(D\mid H_1)$ 与 $P(D\mid H_2)$ 如何比较？假设地震对游戏参与者的决策不敏感，由对称性这两量相等。我们不知道门 3 脱落的概率多大，但无论多大，奖品在门 1 还是门 2 后它都一样可能脱落。于是若 $P(D\mid H_1)=P(D\mid H_2)$，得：
 
-$$
+```math
 P(H_1\mid D)=\frac{P(D\mid H_1)(1/3)}{P(D)}=\frac{1}{2},\quad P(H_2\mid D)=\frac{1}{2},\quad P(H_3\mid D)=0. \tag{3.41}
-$$
+```
 
 两个可能的假设现在等可能。若假设主持人知道奖品位置并可能行骗，答案还要修改，因为必须把主持人的话视为数据的一部分。糊涂了吗？确保弄懂这两道游戏节目题非常值得。别担心——我第一次遇到第二题时也栽了。
 

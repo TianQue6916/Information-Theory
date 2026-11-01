@@ -18,15 +18,15 @@
 
 熵 $H(X)=\sum_i p_i\log_2\frac{1}{p_i}$ 的基础是随机变量的结果 $x$ 的 Shannon information content（香农信息含量）：
 
-$$
+```math
 h(x)=\log_2\frac{1}{P(x)}. \tag{4.2}
-$$
+```
 
 它以比特度量。例如，若 $x\sim\mathrm{Bernoulli}(p)$，则
 
-$$
+```math
 H(p,1-p)=p\log_2\frac{1}{p}+(1-p)\log_2\frac{1}{1-p}, \tag{4.3}
-$$
+```
 
 它就是字母表与分布为 $\mathcal{A}_X=\{a,b\}$、$P_X=\{p,(1-p)\}$ 的系综 $X$ 的熵。
 
@@ -34,27 +34,27 @@ $$
 
 **独立随机变量的信息含量。** 为什么 $\log\frac{1}{p_i}$ 会与信息含量有关？而不是 $p_i$ 的其他某个函数？我们很快详细探讨这个问题，但先注意函数 $h(x)=\log\frac{1}{p(x)}$ 的一个好性质。设想得知两个独立随机变量 $x$ 与 $y$ 的值。独立性的定义是概率分布可分解为乘积：
 
-$$
+```math
 P(x,y)=P(x)P(y). \tag{4.4}
-$$
+```
 
 直观上，我们希望「获得的信息量」的任何度量具有 additivity（可加性）：对独立随机变量 $x,y$，得知 $x$ 与 $y$ 获得的信息应等于单独得知 $x$ 与单独得知 $y$ 的信息之和。结果 $(x,y)$ 的香农信息含量为
 
-$$
+```math
 h(x,y)=\log\frac{1}{P(x,y)}=\log\frac{1}{P(x)P(y)}=\log\frac{1}{P(x)}+\log\frac{1}{P(y)} \tag{4.5}
-$$
+```
 
 所以它确实满足
 
-$$
+```math
 h(x,y)=h(x)+h(y)\quad\text{（若 } x \text{ 与 } y \text{ 独立）}. \tag{4.6}
-$$
+```
 
 <span style="color:#00838f;">**[习题 4.2]** [1, p.86] 证明：若 $x,y$ 独立，结果 $x,y$ 的熵满足
 
-$$
+```math
 H(X,Y)=H(X)+H(Y). \tag{4.7}
-$$
+```
 
 换言之，对独立变量熵是可加的。</span>
 
@@ -109,9 +109,9 @@ $$
 
 从结果 $x$ 获得的香农信息是 $h(x)=\log(1/P(x))$。若运气好第一次就击中潜艇，则
 
-$$
+```math
 h(x)=h^{(1)}(y)=\log_264=6\ \text{bits}. \tag{4.8}
-$$
+```
 
 现在看起来可能有点奇怪：一个二元结果竟能传达六比特。但我们得知了藏身之处——它本可以是 64 个方格中的任何一个；所以靠一次幸运的二元问题，我们确实得知了六比特。
 
@@ -119,23 +119,23 @@ $$
 
 第一次没打中呢？从这个结果获得的香农信息是
 
-$$
+```math
 h(x)=h^{(1)}(n)=\log_2\frac{64}{63}=0.0227\ \text{bits}. \tag{4.9}
-$$
+```
 
 说得通吗？不那么显然。继续。若第二发也脱靶，第二个结果的香农信息含量是
 
-$$
+```math
 h^{(2)}(n)=\log_2\frac{63}{62}=0.0230\ \text{bits}. \tag{4.10}
-$$
+```
 
 <!-- p.84 -->
 
 若脱靶三十二次（每次射向新方格），获得的总香农信息是
 
-$$
+```math
 \log_2\frac{64}{63}+\log_2\frac{63}{62}+\cdots+\log_2\frac{33}{32}=0.0227+0.0230+\cdots+0.0430=1.0\ \text{bits}. \tag{4.11}
-$$
+```
 
 为什么是这个整数？我们得知了什么？现在知道潜艇不在我们射过的 32 个方格中；得知这一事实就像玩一局六十三（p.70）：第一个问题问「$x$ 是否是我射过的这些方格对应的 32 个数之一」，得到答案「否」。这个答案排除一半假设，所以给我们一比特。
 
@@ -143,21 +143,21 @@ $$
 
 若第 49 发击中潜艇（还剩 16 个方格）呢？这个结果的香农信息含量是
 
-$$
+```math
 h^{(49)}(y)=\log_216=4.0\ \text{bits}. \tag{4.12}
-$$
+```
 
 所有结果的总香农信息含量为
 
-$$
+```math
 \log_2\frac{64}{63}+\log_2\frac{63}{62}+\cdots+\log_2\frac{17}{16}+\log_2\frac{16}{1}=0.0227+0.0230+\cdots+0.0874+4.0=6.0\ \text{bits}. \tag{4.13}
-$$
+```
 
 所以一旦知道潜艇在哪，获得的总香农信息含量是 6 比特。无论何时击中潜艇这一结果都成立。若在剩 $n$ 个方格可选时击中（方程 (4.13) 中 $n=16$），总获得信息为：
 
-$$
+```math
 \log_2\frac{64}{63}+\log_2\frac{63}{62}+\cdots+\log_2\frac{n+1}{n}+\log_2\frac{n}{1}=\log_2\Bigl(\frac{64}{63}\times\frac{63}{62}\times\cdots\times\frac{n+1}{n}\times\frac{n}{1}\Bigr)=\log_2\frac{64}{1}=6\ \text{bits}. \tag{4.14}
-$$
+```
 
 <!-- p.84/85 -->
 
@@ -194,7 +194,10 @@ $$
 只要允许极小的错误概率 $\delta$，压缩到 $NH$ 比特是可能的。即使允许很大的错误概率，我们也只能压缩到 $NH$ 比特。这就是 source coding theorem（信源编码定理）。
 
 > <span style="color:#c0392b;">**[定理 4.1]** **Shannon 信源编码定理。** 设 $X$ 是熵为 $H(X)=H$ 比特的系综。给定 $\epsilon>0$ 与 $0<\delta<1$，存在正整数 $N_0$ 使当 $N>N_0$ 时
-> $$\left|\frac{1}{N}H_\delta(X^N)-H\right|<\epsilon. \tag{4.21}$$</span>
+> ```math
+> \left|\frac{1}{N}H_\delta(X^N)-H\right|<\epsilon. \tag{4.21}
+> ```
+> </span>
 
 <!-- p.90 -->
 
@@ -202,51 +205,51 @@ $$
 
 $N$ 增大为什么有帮助？考察来自 $X^N$ 的长字符串。表 4.10 展示 $N=100$、$p_1=0.1$ 时 $X^N$ 的十五个样本。含 $r$ 个 1 与 $N-r$ 个 0 的串 $x$ 的概率为
 
-$$
+```math
 P(x)=p_1^r(1-p_1)^{N-r}. \tag{4.22}
-$$
+```
 
 含 $r$ 个 1 的串数为
 
-$$
+```math
 n(r)=\binom{N}{r}. \tag{4.23}
-$$
+```
 
 所以 1 的个数 $r$ 具有 binomial distribution（二项分布）：
 
-$$
+```math
 P(r)=\binom{N}{r}p_1^r(1-p_1)^{N-r}. \tag{4.24}
-$$
+```
 
 这些函数见图 4.11。$r$ 的均值为 $Np_1$，标准差为 $\sqrt{Np_1(1-p_1)}$（p.1）。$N=100$ 时
 
-$$
+```math
 r\sim Np_1\pm\sqrt{Np_1(1-p_1)}\simeq10\pm3. \tag{4.25}
-$$
+```
 
 <!-- p.92 -->
 
 $N=1000$ 时
 
-$$
+```math
 r\sim100\pm10. \tag{4.26}
-$$
+```
 
 注意 $N$ 变大时，$r$ 的概率分布更集中：$r$ 的可能值范围随 $N$ 增长，但 $r$ 的标准差只按 $\sqrt{N}$ 增长。$r$ 最可能落在一个小值域，意味着结果 $x$ 也最可能落在一个相应的小结果子集——我们称之为 typical set（典型集）。
 
 **典型集的定义。** 对任意字母表 $\mathcal{A}_X$ 的系综 $X$ 定义 typicality（典型性）。典型串的定义将涉及串的概率。$N$ 个符号的长串通常含约 $p_1N$ 个第一符号、$p_2N$ 个第二符号，等等。于是此串的概率大致为
 
-$$
+```math
 P(x)_{\mathrm{typ}}=P(x_1)P(x_2)P(x_3)\dots P(x_N)\simeq p_1^{(p_1N)}p_2^{(p_2N)}\dots p_I^{(p_IN)}, \tag{4.27}
-$$
+```
 
 <!-- p.92/93 -->
 
 所以典型串的信息含量为
 
-$$
+```math
 \log_2\frac{1}{P(x)}\simeq\sum_ip_i\log_2\frac{1}{p_i}=NH. \tag{4.28}
-$$
+```
 
 因此随机变量 $\log_2\frac{1}{P(x)}$（即 $x$ 的信息含量）很可能接近 $NH$。我们把典型性的定义建立在这一观察上。
 
@@ -254,9 +257,9 @@ $$
 
 引入参数 $\beta$ 定义「概率需接近 $2^{-NH}$ 到什么程度」才算典型。典型元素之集称为 typical set（典型集）$\mathcal{T}_{N\beta}$：
 
-$$
+```math
 \mathcal{T}_{N\beta}\equiv\left\{x\in\mathcal{A}_X^N:\ \left|\frac{1}{N}\log_2\frac{1}{P(x)}-H\right|<\beta\right\}. \tag{4.29}
-$$
+```
 
 <!-- p.93 -->
 
@@ -268,7 +271,7 @@ $$
 
 <!-- p.93/94 -->
 
-注意若 $H(X)<H_0(X)$，则 $2^{NH(X)}$ 只是可能结果总数 $|\mathcal{A}_X^N|=|\mathcal{A}_X|^N=2^{NH_0(X)}$ 的极小比例。术语 equipartition（均分）用于描述「典型集成员概率大致相等」的想法。[不应过于字面地理解，所以我在「渐近均分」上加引号；见第 83 页。]均分在热物理中的第二个含义是「经典系统每个自由度有相等的平均能量 $\frac{1}{2}kT$」——这里不取这个含义。
+注意若 $H(X)\lt H_0(X)$，则 $2^{NH(X)}$ 只是可能结果总数 $|\mathcal{A}_X^N|=|\mathcal{A}_X|^N=2^{NH_0(X)}$ 的极小比例。术语 equipartition（均分）用于描述「典型集成员概率大致相等」的想法。[不应过于字面地理解，所以我在「渐近均分」上加引号；见第 83 页。]均分在热物理中的第二个含义是「经典系统每个自由度有相等的平均能量 $\frac{1}{2}kT$」——这里不取这个含义。
 
 「渐近均分」原理等价于：
 
@@ -287,17 +290,23 @@ $$
 > <span style="color:#2471a3;">**[技术性注记]** 严格地说，这里假设 $u$ 是有限离散系综 $X$ 的样本 $x$ 的函数 $u(x)$。那么求和 $\sum_uP(u)f(u)$ 应写作 $\sum_xP(x)f(u(x))$，即 $P(u)$ 是有限个 delta 函数之和。这一限制保证 $u$ 的均值与方差存在（一般的 $P(u)$ 未必如此）。</span>
 
 > <span style="color:#00838f;">**[Chebyshev 不等式 1]** 设 $t$ 是非负实随机变量，$\alpha$ 为正实数。则
-> $$P(t\ge\alpha)\le\frac{\bar{t}}{\alpha}. \tag{4.30}$$
+> ```math
+> P(t\ge\alpha)\le\frac{\bar{t}}{\alpha}. \tag{4.30}
+> ```
 > **证明**：$P(t\ge\alpha)=\sum_{t\ge\alpha}P(t)$。每项乘以 $t/\alpha\ge1$：$P(t\ge\alpha)\le\sum_{t\ge\alpha}P(t)\frac{t}{\alpha}$。加上（非负的）缺失项：$P(t\ge\alpha)\le\sum_tP(t)\frac{t}{\alpha}=\bar{t}/\alpha$。∎</span>
 
 <!-- p.94/95 -->
 
 > <span style="color:#00838f;">**[Chebyshev 不等式 2]** 设 $x$ 是随机变量，$\alpha$ 为正实数。则
-> $$P\bigl((x-\bar{x})^2\ge\alpha\bigr)\le\sigma_x^2/\alpha. \tag{4.31}$$
+> ```math
+> P\bigl((x-\bar{x})^2\ge\alpha\bigr)\le\sigma_x^2/\alpha. \tag{4.31}
+> ```
 > **证明**：取 $t=(x-\bar{x})^2$ 并应用前一命题。∎
 >
 > **弱大数定律。** 取 $x$ 为 $N$ 个独立随机变量 $h_1,\dots,h_N$（共同均值 $\bar{h}$、共同方差 $\sigma_h^2$）的平均：$x=\frac{1}{N}\sum_{n=1}^Nh_n$。则
-> $$P\bigl((x-\bar{h})^2\ge\alpha\bigr)\le\sigma_h^2/\alpha N. \tag{4.32}$$
+> ```math
+> P\bigl((x-\bar{h})^2\ge\alpha\bigr)\le\sigma_h^2/\alpha N. \tag{4.32}
+> ```
 > **证明**：证得 $\bar{x}=\bar{h}$ 与 $\sigma_x^2=\sigma_h^2/N$ 即得。∎</span>
 
 我们对「$x$ 非常接近均值」（$\alpha$ 很小）感兴趣。无论 $\sigma_h^2$ 多大、所需 $\alpha$ 多小、想要的 $P((x-\bar{h})^2\ge\alpha)$ 多小，只要 $N$ 足够大总能达到。
@@ -306,55 +315,55 @@ $$
 
 **定理 4.1（p.78）的证明。** 把大数定律应用于「从 $X^N$ 抽取的 $x$」定义的随机变量 $\frac{1}{N}\log_2\frac{1}{P(x)}$。此随机变量可写作 $N$ 个信息含量 $h_n=\log_2(1/P(x_n))$ 的平均，每个都是均值为 $H=H(X)$、方差为 $\sigma^2\equiv\mathrm{var}[\log_2(1/P(x_n))]$ 的随机变量。（每个 $h_n$ 是第 $n$ 个结果的香农信息含量。）再次用参数 $N,\beta$ 定义典型集：
 
-$$
+```math
 \mathcal{T}_{N\beta}=\left\{x\in\mathcal{A}_X^N:\ \Bigl(\frac{1}{N}\log_2\frac{1}{P(x)}-H\Bigr)^2<\beta^2\right\}. \tag{4.33}
-$$
+```
 
 对所有 $x\in\mathcal{T}_{N\beta}$，$x$ 的概率满足
 
-$$
+```math
 2^{-N(H+\beta)}<P(x)<2^{-N(H-\beta)}. \tag{4.34}
-$$
+```
 
 且由大数定律，
 
-$$
+```math
 P(x\in\mathcal{T}_{N\beta})\ge1-\frac{\sigma^2}{\beta^2N}. \tag{4.35}
-$$
+```
 
 我们 thus 证明了「渐近均分」原理。$N$ 增大时，$x$ 落入 $\mathcal{T}_{N\beta}$ 的概率对任何 $\beta$ 趋近 1。这一结果与信源编码如何相关？
 
 必须把 $\mathcal{T}_{N\beta}$ 与 $H_\delta(X^N)$ 联系起来。我们将证明：对任意给定的 $\delta$，存在足够大的 $N$ 使 $H_\delta(X^N)\simeq NH$。
 
-**第 1 部分：$\frac{1}{N}H_\delta(X^N)<H+\epsilon$。** 集合 $\mathcal{T}_{N\beta}$ 不是压缩的最佳子集，所以 $|\mathcal{T}_{N\beta}|$ 给出 $H_\delta$ 的上界。通过计算 $\mathcal{T}_{N\beta}$ 可能多大来证明 $H_\delta(X^N)$ 必须多小。我们可以随意把 $\beta$ 设为任何方便的值。$\mathcal{T}_{N\beta}$ 成员的最小可能概率是 $2^{-N(H+\beta)}$，而 $\mathcal{T}_{N\beta}$ 包含的总概率不会超过 1。所以
+**第 1 部分：$\frac{1}{N}H_\delta(X^N)\lt H+\epsilon$。** 集合 $\mathcal{T}_{N\beta}$ 不是压缩的最佳子集，所以 $|\mathcal{T}_{N\beta}|$ 给出 $H_\delta$ 的上界。通过计算 $\mathcal{T}_{N\beta}$ 可能多大来证明 $H_\delta(X^N)$ 必须多小。我们可以随意把 $\beta$ 设为任何方便的值。$\mathcal{T}_{N\beta}$ 成员的最小可能概率是 $2^{-N(H+\beta)}$，而 $\mathcal{T}_{N\beta}$ 包含的总概率不会超过 1。所以
 
-$$
+```math
 |\mathcal{T}_{N\beta}|\,2^{-N(H+\beta)}<1, \tag{4.36}
-$$
+```
 
 即典型集的大小有界：
 
-$$
+```math
 |\mathcal{T}_{N\beta}|<2^{N(H+\beta)}. \tag{4.37}
-$$
+```
 
 <!-- p.95/96 -->
 
-若设 $\beta=\epsilon$ 并取 $N_0$ 使 $\frac{\sigma^2}{\epsilon^2N_0}\le\delta$，则 $P(\mathcal{T}_{N\beta})\ge1-\delta$，集合 $\mathcal{T}_{N\beta}$ 成为 $H_\delta(X^N)\le\log_2|\mathcal{T}_{N\beta}|<N(H+\epsilon)$ 的见证（witness）。图 4.13 示意定理两部分：给定任何 $\delta$ 与 $\epsilon$，我们证明对足够大的 $N$，$\frac{1}{N}H_\delta(X^N)$ 位于 (1) 直线 $H+\epsilon$ 之下与 (2) 直线 $H-\epsilon$ 之上。
+若设 $\beta=\epsilon$ 并取 $N_0$ 使 $\frac{\sigma^2}{\epsilon^2N_0}\le\delta$，则 $P(\mathcal{T}_{N\beta})\ge1-\delta$，集合 $\mathcal{T}_{N\beta}$ 成为 $H_\delta(X^N)\le\log_2|\mathcal{T}_{N\beta}|\lt N(H+\epsilon)$ 的见证（witness）。图 4.13 示意定理两部分：给定任何 $\delta$ 与 $\epsilon$，我们证明对足够大的 $N$，$\frac{1}{N}H_\delta(X^N)$ 位于 (1) 直线 $H+\epsilon$ 之下与 (2) 直线 $H-\epsilon$ 之上。
 
 **第 2 部分：$\frac{1}{N}H_\delta(X^N)>H-\epsilon$。** 设想有人声称第二部分不成立——对任何 $N$，最小 δ-充分子集 $S_\delta$ 比上述不等式允许的更小。我们可以用典型集证明他们必错。记住我们可以随意设 $\beta$。设 $\beta=\epsilon/2$，任务变成证明：大小 $|S'|\le2^{N(H-2\beta)}$ 且达到 $P(x\in S')\ge1-\delta$ 的子集 $S'$ 不存在（$N$ 大于我们指定的 $N_0$）。
 
 考虑落入这个竞争的更小子集 $S'$ 的概率：
 
-$$
+```math
 P(x\in S')=P(x\in S'\cap\mathcal{T}_{N\beta})+P(x\in S'\cap\overline{\mathcal{T}_{N\beta}}), \tag{4.38}
-$$
+```
 
 其中 $\overline{\mathcal{T}_{N\beta}}$ 表示补集 $\{x\notin\mathcal{T}_{N\beta}\}$。第一项的最大值在 $S'\cap\mathcal{T}_{N\beta}$ 含 $2^{N(H-2\beta)}$ 个都具有最大概率 $2^{-N(H-\beta)}$ 的结果时达到；第二项的最大值是 $P(x\notin\mathcal{T}_{N\beta})$。所以：
 
-$$
+```math
 P(x\in S')\le2^{N(H-2\beta)}\,2^{-N(H-\beta)}+\frac{\sigma^2}{\beta^2N}=2^{-N\beta}+\frac{\sigma^2}{\beta^2N}. \tag{4.39}
-$$
+```
 
 现在设 $\beta=\epsilon/2$ 与 $N_0$ 使 $P(x\in S')<1-\delta$，表明 $S'$ 不可能满足充分子集 $S_\delta$ 的定义。因此任何大小 $|S'|\le2^{N(H-\epsilon)}$ 的子集 $S'$ 的概率小于 $1-\delta$，按 $H_\delta$ 的定义，$H_\delta(X^N)>N(H-\epsilon)$。
 
@@ -364,7 +373,7 @@ $$
 
 ## <span style="color:#c0392b;">4.6 评论（Comments）</span>
 
-信源编码定理（p.78）有两部分：$\frac{1}{N}H_\delta(X^N)<H+\epsilon$ 与 $\frac{1}{N}H_\delta(X^N)>H-\epsilon$。两个结果都有趣。
+信源编码定理（p.78）有两部分：$\frac{1}{N}H_\delta(X^N)\lt H+\epsilon$ 与 $\frac{1}{N}H_\delta(X^N)>H-\epsilon$。两个结果都有趣。
 
 第一部分告诉我们：即使错误概率 $\delta$ 极小，以 vanishingly small（趋于零）的错误概率指定长 $N$ 符号串 $x$ 所需的每符号比特数 $\frac{1}{N}H_\delta(X^N)$ 也不必超过 $H+\epsilon$ 比特。只需对错误有极小容忍，所需比特数就从 $H_0(X)$ 显著降到 $H+\epsilon$。
 
@@ -410,21 +419,32 @@ $$
 **不服从大数定律的分布。** 本章使用的大数定律表明：$N$ 个 i.i.d. 随机变量的均值具有随 $N$ 增大而变窄（宽度 $\propto1/\sqrt{N}$）的概率分布。但这一性质只对离散随机变量证明（即取有限个值的实数）。许多连续分布的随机变量也服从大数定律，但存在不服从的重要分布。有些连续分布没有均值或方差。
 
 > <span style="color:#00838f;">**[习题 4.18]** [3, p.88] 画出 Cauchy distribution（柯西分布）
-> $$P(x)=\frac{1}{Z}\cdot\frac{1}{x^2+1},\qquad x\in(-\infty,\infty). \tag{4.40}$$
+> ```math
+> P(x)=\frac{1}{Z}\cdot\frac{1}{x^2+1},\qquad x\in(-\infty,\infty). \tag{4.40}
+> ```
 > 其归一化常数 $Z$ 是多少？能求其均值或方差吗？考虑和 $z=x_1+x_2$（$x_1,x_2$ 独立柯西）。$P(z)$ 是什么？均值 $\bar{x}=(x_1+x_2)/2$ 的概率分布是什么？该柯西分布 $N$ 个样本的均值的概率分布是什么？</span>
 
 **其他渐近性质。**
 
 > <span style="color:#00838f;">**[习题 4.19]** [3] **Chernoff 界。** 我们从 Chebyshev 不等式 (4.30) 导出弱大数定律：令不等式 $P(t\ge\alpha)\le\bar{t}/\alpha$ 中的随机变量 $t$ 是所关心的随机变量 $x$ 的函数 $t=(x-\bar{x})^2$。用其他函数可得其他有用的不等式。用于 bounding distribution tails（界定分布尾部）的 Chernoff bound（Chernoff 界）取 $t=\exp(sx)$。证明：
-> $$P(x\ge a)\le e^{-sa}g(s),\quad \text{对任何 } s>0 \tag{4.41}$$
-> $$P(x\le a)\le e^{-sa}g(s),\quad \text{对任何 } s<0 \tag{4.42}$$
+> ```math
+> P(x\ge a)\le e^{-sa}g(s),\quad \text{对任何 } s>0 \tag{4.41}
+> ```
+> ```math
+> P(x\le a)\le e^{-sa}g(s),\quad \text{对任何 } s<0 \tag{4.42}
+> ```
 > 其中 $g(s)$ 是 $x$ 的 moment-generating function（矩母函数）：
-> $$g(s)=\sum_xP(x)e^{sx}. \tag{4.43}$$</span>
+> ```math
+> g(s)=\sum_xP(x)e^{sx}. \tag{4.43}
+> ```
+> </span>
 
 **与 $p\log\frac{1}{p}$ 相关的奇特函数。**
 
 > <span style="color:#00838f;">**[习题 4.20]** [4, p.89] 这道习题毫无用处；收入它只为取悦喜欢数学奇趣的人。画出函数
-> $$f(x)=x^{x^{x^{\cdot^{\cdot^{\cdot}}}}} \tag{4.44}$$
+> ```math
+> f(x)=x^{x^{x^{\cdot^{\cdot^{\cdot}}}}} \tag{4.44}
+> ```
 > （$x\ge0$）的草图。提示：求 $f$ 的 inverse function（反函数）——即函数 $g(y)$：若 $x=g(y)$ 则 $y=f(x)$——它与 $p\log\frac{1}{p}$ 密切相关。</span>
 
 <!-- p.98 -->
@@ -433,9 +453,9 @@ $$
 
 <span style="color:#00838f;">**[解 4.2]** 设 $P(x,y)=P(x)P(y)$。则
 
-$$
+```math
 H(X,Y)=\sum_{xy}P(x)P(y)\log\frac{1}{P(x)P(y)}=\sum_{xy}P(x)P(y)\log\frac{1}{P(x)}+\sum_{xy}P(x)P(y)\log\frac{1}{P(y)}=\sum_xP(x)\log\frac{1}{P(x)}+\sum_yP(y)\log\frac{1}{P(y)}=H(X)+H(Y). \tag{4.45–4.48}
-$$
+```
 
 <span style="color:#00838f;">**[解 4.4]** ASCII 文件可缩小 7/8 倍。这可以由一个块码实现：把 8 字节块映射为 7 字节块——把 56 个信息比特复制进 7 字节、忽略每字符的最后一位。</span>
 

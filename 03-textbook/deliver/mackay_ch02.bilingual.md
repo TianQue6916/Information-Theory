@@ -8,9 +8,9 @@
 
 ensemble（系综）$\mathcal{A}_X$ 的 outcomes（结果）为 $x$，取值于
 
-$$
+```math
 \mathcal{A}_X=\{a_1,a_2,\dots,a_I\},
-$$
+```
 
 具有 probability distribution（概率分布）$\{p_1,p_2,\dots,p_I\}$，其中 $p_i=P(x=a_i)$ 且 $p_i\ge0$、$\sum_{\mathcal{A}_X}P(x)=1$。
 
@@ -18,15 +18,15 @@ $$
 
 > <span style="color:#2471a3;">**[译者注｜记号]** 缩写：有时使用更简的记号，例如 $P(x=a_i)$ 可写作 $P(a_i)$ 或 $P(x)$。子集的概率：若 $T$ 是 $\mathcal{A}_X$ 的子集，则
 
-$$
+```math
 P(T)=P(x\in T)=\sum_{a_i\in T}P(x=a_i). \tag{2.1}
-$$
+```
 
 例如若定义 $V$ 为图 2.1 中的元音字母 $V=\{a,e,i,o,u\}$，则
 
-$$
+```math
 P(V)=0.06+0.09+0.06+0.07+0.03=0.31. \tag{2.2}
-$$
+```
 
 </span>
 
@@ -36,21 +36,21 @@ joint ensemble（联合系综）$XY$ 是每个结果为有序对 $x,y$（$x\in\m
 
 **边缘概率（Marginal probability）。** 可以由联合概率 $P(x,y)$ 通过求和得到边缘概率 $P(x)$：
 
-$$
+```math
 P(x=a_i)\equiv\sum_{y\in\mathcal{A}_Y}P(x=a_i,\ y). \tag{2.3}
-$$
+```
 
 类似地，用更简的记号，$y$ 的边缘概率为
 
-$$
+```math
 P(y)\equiv\sum_{x\in\mathcal{A}_X}P(x,y). \tag{2.4}
-$$
+```
 
 **条件概率（Conditional probability）。**
 
-$$
+```math
 P(x=a_i \mid y=b_j)\equiv\frac{P(x=a_i,\ y=b_j)}{P(y=b_j)}\qquad \text{（若 } P(y=b_j)\neq0\text{）}. \tag{2.5}
-$$
+```
 
 [若 $P(y=b_j)=0$，则 $P(x=a_i\mid y=b_j)$ 无定义。]我们读 $P(x=a_i\mid y=b_j)$ 为「在 $y$ 等于 $b_j$ 的条件下，$x$ 等于 $a_i$ 的概率」。
 
@@ -66,36 +66,37 @@ $$
 
 **乘积规则（Product rule）**——由条件概率的定义得到：
 
-$$
+```math
 P(x,y\mid H)=P(x\mid y,H)P(y\mid H)=P(y\mid x,H)P(x\mid H). \tag{2.6}
-$$
+```
 
 此规则也称 chain rule（链式法则）。
 
 **求和规则（Sum rule）**——边缘概率定义的改写：
 
-$$
-\begin{aligned}
-P(x\mid H)&=\sum_yP(x,y\mid H) \tag{2.7}\\
-&=\sum_yP(x\mid y,H)P(y\mid H). \tag{2.8}
-\end{aligned}
-$$
+```math
+P(x\mid H)=\sum_yP(x,y\mid H) \tag{2.7}
+```
+
+```math
+\phantom{P(x\mid H)}=\sum_yP(x\mid y,H)P(y\mid H). \tag{2.8}
+```
 
 **贝叶斯定理（Bayes' theorem）**——由乘积规则得到：
 
-$$
+```math
 P(y\mid x,H)=\frac{P(x\mid y,H)P(y\mid H)}{P(x\mid H)} \tag{2.9}
-$$
+```
 
-$$
+```math
 =\frac{P(x\mid y,H)P(y\mid H)}{\sum_{y'}P(x\mid y',H)P(y'\mid H)}. \tag{2.10}
-$$
+```
 
 **独立性（Independence）。** 两个随机变量 $X,Y$ independent（独立）（有时写作 $X\perp Y$）当且仅当
 
-$$
+```math
 P(x,y)=P(x)P(y). \tag{2.11}
-$$
+```
 
 <span style="color:#00838f;">**[习题 2.2]** [1, p.40] 图 2.2 的联合系综中随机变量 $X$ 与 $Y$ 独立吗？
 
@@ -105,12 +106,12 @@ $$
 
 <span style="color:#00838f;">**[例 2.3]** Jo 做了一种恶性疾病的检测。用变量 $a$ 表示 Jo 的健康状况、$b$ 表示检测结果：
 
-$$
+```math
 \begin{aligned}
 a=1&\quad \text{Jo 有病}\\
 a=0&\quad \text{Jo 无病}. \tag{2.12}
 \end{aligned}
-$$
+```
 
 检测结果为「阳性」（$b=1$）或「阴性」（$b=0$）；检测 95% 可靠：真正有病的人 95% 的情形返回阳性，无病的人 95% 的情形得到阴性。最后一条背景信息：Jo 这个年龄与背景的人群 1% 有病。
 
@@ -118,40 +119,40 @@ $$
 
 **解。** 写下所有给定的概率。检测的可靠性给出给定 $a$ 时 $b$ 的条件概率：
 
-$$
+```math
 \begin{aligned}
 P(b=1\mid a=1)&=0.95 & P(b=1\mid a=0)&=0.05\\
 P(b=0\mid a=1)&=0.05 & P(b=0\mid a=0)&=0.95;
 \end{aligned} \tag{2.13}
-$$
+```
 
 疾病的流行率告诉我们 $a$ 的边缘概率：
 
-$$
+```math
 P(a=1)=0.01,\qquad P(a=0)=0.99. \tag{2.14}
-$$
+```
 
 由边缘 $P(a)$ 与条件概率 $P(b\mid a)$ 可推出联合概率 $P(a,b)=P(a)P(b\mid a)$ 以及我们感兴趣的任何其他概率。例如由求和规则，$b=1$ 的边缘概率——得到阳性结果的概率——是
 
-$$
+```math
 P(b=1)=P(b=1\mid a=1)P(a=1)+P(b=1\mid a=0)P(a=0). \tag{2.15}
-$$
+```
 
 <!-- p.37/38 -->
 
 Jo 收到了阳性结果 $b=1$，想知道她有病（即 $a=1$）有多 plausible（可信）。街上的路人可能被「检测 95% 可靠，所以 Jo 的阳性结果意味着 Jo 有 95% 的概率有病」这句话骗到，但这是不对的。推断问题的正确解法要用 Bayes' theorem（贝叶斯定理）：
 
-$$
+```math
 P(a=1\mid b=1)=\frac{P(b=1\mid a=1)P(a=1)}{P(b=1\mid a=1)P(a=1)+P(b=1\mid a=0)P(a=0)} \tag{2.16}
-$$
+```
 
-$$
+```math
 =\frac{0.95\times0.01}{0.95\times0.01+0.05\times0.99} \tag{2.17}
-$$
+```
 
-$$
+```math
 =0.16. \tag{2.18}
-$$
+```
 
 所以尽管结果阳性，Jo 有病的概率只有 16%。
 
@@ -195,9 +196,9 @@ $$
 
 <span style="color:#00838f;">**[习题 2.5]** [2, p.40] 一个瓮中有 $K$ 个球，$B$ 个黑球、$W=K-B$ 个白球。定义比例 $f_B\equiv B/K$。Fred 按习题 2.4 的方式摸 $N$ 次，得 $n_B$ 个黑球，并计算量
 
-$$
+```math
 z=\frac{(n_B-f_BN)^2}{Nf_B(1-f_B)}. \tag{2.19}
-$$
+```
 
 $z$ 的期望是多少？$N=5$、$f_B=1/5$ 时 $z$ 的概率分布是什么？$z<1$ 的概率是多少？[提示：把 $z$ 与上一习题计算的量比较。]
 
@@ -209,43 +210,43 @@ $z$ 的期望是多少？$N=5$、$f_B=1/5$ 时 $z$ 的概率分布是什么？$z
 
 **解。** 随机变量 $u$ 与 $n_B$ 的联合概率分布可写为
 
-$$
+```math
 P(u,n_B\mid N)=P(n_B\mid u,N)P(u). \tag{2.20}
-$$
+```
 
 由 $u$ 与 $n_B$ 的联合概率，可得给定 $n_B$ 时 $u$ 的条件分布：
 
-$$
+```math
 P(u\mid n_B,N)=\frac{P(u,n_B\mid N)}{P(n_B\mid N)} \tag{2.21}
-$$
+```
 
-$$
+```math
 =\frac{P(n_B\mid u,N)P(u)}{P(n_B\mid N)}. \tag{2.22}
-$$
+```
 
 <!-- p.40 -->
 
 图 2.5 展示 $N=10$ 次摸球后 Bill 与 Fred 瓮问题的 $u$ 与 $n_B$ 联合概率。$u$ 的边缘概率 $P(u)=\frac{1}{11}$（对所有 $u$）。给定 $u$ 与 $N$ 时 $n_B$ 的概率 $P(n_B\mid u,N)$ 你在解习题 2.4（p.27）时已写出。[你在做那些强烈推荐的习题，对吧？]若定义 $f_u\equiv u/10$，则
 
-$$
+```math
 P(n_B\mid u,N)=\binom{N}{n_B}f_u^{\,n_B}(1-f_u)^{N-n_B}. \tag{2.23}
-$$
+```
 
 那分母 $P(n_B\mid N)$ 呢？这是 $n_B$ 的边缘概率，可用求和规则得到：
 
-$$
+```math
 P(n_B\mid N)=\sum_uP(u,n_B\mid N)=\sum_uP(u)P(n_B\mid u,N). \tag{2.24}
-$$
+```
 
 所以给定 $n_B$ 时 $u$ 的条件概率为
 
-$$
+```math
 P(u\mid n_B,N)=\frac{P(u)P(n_B\mid u,N)}{P(n_B\mid N)} \tag{2.25}
-$$
+```
 
-$$
+```math
 =\frac{1}{P(n_B\mid N)}\cdot\frac{1}{11}\binom{N}{n_B}f_u^{\,n_B}(1-f_u)^{N-n_B}. \tag{2.26}
-$$
+```
 
 <!-- p.41 -->
 
@@ -257,37 +258,37 @@ $$
 
 条件概率 $P(u\mid n_B,N)$ 称为给定 $n_B$ 时 $u$ 的 posterior probability（后验概率）。归一化常数 $P(n_B\mid N)$ 不依赖 $u$，若只想评估各候选假设 $u$ 的相对概率，它的值不重要。但在任何有一定复杂度的数据建模问题中，这个量变得重要，它有各种名字：$P(n_B\mid N)$ 称为 evidence（证据）或 marginal likelihood（边缘似然）。若 $\theta$ 表示未知参数、$D$ 表示数据、$H$ 表示整个假设空间，一般方程
 
-$$
+```math
 P(\theta\mid D,H)=\frac{P(D\mid\theta,H)P(\theta\mid H)}{P(D\mid H)} \tag{2.27}
-$$
+```
 
 写作：
 
-$$
+```math
 \text{posterior 后验}=\frac{\text{likelihood 似然}\times\text{prior 先验}}{\text{evidence 证据}}. \tag{2.28}
-$$
+```
 
 **逆向概率与预测。** 例 2.6（续）。再假设 Bill 已观察到 $N=10$ 次摸球中 $n_B=3$ 个黑球，让 Fred 从同一瓮再摸一个球。下一个球是黑球的概率是多少？[应利用图 2.6 的后验概率。]
 
 **解。** 由求和规则，
 
-$$
+```math
 P(\mathrm{ball}_{N+1}\text{ is black}\mid n_B,N)=\sum_uP(\mathrm{ball}_{N+1}\text{ is black}\mid u,n_B,N)P(u\mid n_B,N). \tag{2.29}
-$$
+```
 
 <!-- p.41/42 -->
 
 由于球是从所选瓮中有放回地摸的，$P(\mathrm{ball}_{N+1}\text{ is black}\mid u,n_B,N)$ 就是 $f_u=u/10$，无论 $n_B$ 与 $N$ 是什么。所以
 
-$$
+```math
 P(\mathrm{ball}_{N+1}\text{ is black}\mid n_B,N)=\sum_uf_uP(u\mid n_B,N). \tag{2.30}
-$$
+```
 
 用图 2.6 给出的 $P(u\mid n_B,N)$ 值，得
 
-$$
+```math
 P(\mathrm{ball}_{N+1}\text{ is black}\mid n_B=3,N=10)=0.333. \tag{2.31}
-$$
+```
 
 <!-- p.42 -->
 
@@ -309,9 +310,9 @@ $$
 
 > <span style="color:#00838f;">**[习题 2.8]** [2] 假设 $f_H$ 上均匀先验 $P(f_H)=1$，求解例 2.7（p.30）提出的问题。画出 $f_H$ 的后验分布草图，并计算第 $N+1$ 次结果为正面的概率，针对：(a) $N=3$，$n_H=0$；(b) $N=3$，$n_H=2$；(c) $N=10$，$n_H=3$；(d) $N=300$，$n_H=29$。beta integral（贝塔积分）会很有用：
 
-$$
+```math
 \int_0^1\mathrm{d}p_a\,p_a^{F_a}(1-p_a)^{F_b}=\frac{\Gamma(F_a+1)\Gamma(F_b+1)}{\Gamma(F_a+F_b+2)}=\frac{F_a!\,F_b!}{(F_a+F_b+1)!}. \tag{2.32}
-$$
+```
 
 </span>
 
@@ -319,9 +320,9 @@ $$
 
 回看例 2.6（p.27）与方程 (2.31) 也许有启发。人们有时把「给未知参数（如 $f_H$）指派先验分布」与「对参数值做初始猜测」混淆。但 $f_H$ 上的先验 $P(f_H)$ 不是「一开始我猜 $f_H=1/2$」这样的简单陈述：先验是 $f_H$ 上的概率密度，它规定「$f_H$ 落在任何区间 $(f,f+\delta f)$」的先验信念程度。很可能我们对 $f_H$ 的先验关于 1/2 对称，使先验下 $f_H$ 的均值为 1/2。此时第一次抛掷 $x_1$ 的 predictive distribution（预测分布）确实是
 
-$$
+```math
 P(x_1=\text{head})=\int\mathrm{d}f_H\,P(f_H)P(x_1=\text{head}\mid f_H)=\int\mathrm{d}f_H\,P(f_H)f_H=1/2. \tag{2.33}
-$$
+```
 
 但后续抛掷的预测将依赖整个先验分布，而不只是它的均值。
 
@@ -359,9 +360,9 @@ $$
 
 结果 $x$ 的 Shannon information content（香农信息含量）定义为
 
-$$
+```math
 h(x)=\log_2\frac{1}{P(x)}. \tag{2.34}
-$$
+```
 
 它以 bits（比特）度量。[「bit」一词也用来指取值为 0 或 1 的变量；希望上下文总能说清用的是哪一种含义。]
 
@@ -375,9 +376,9 @@ $$
 
 系综 $X$ 的 entropy（熵）定义为一个结果的平均香农信息含量：
 
-$$
+```math
 H(X)\equiv\sum_{x\in\mathcal{A}_X}P(x)\log\frac{1}{P(x)}, \tag{2.35}
-$$
+```
 
 对 $P(x)=0$ 的约定是 $0\times\log\frac{1}{0}\equiv0$，因为 $\lim_{\theta\to0^+}\theta\log\frac{1}{\theta}=0$。与信息含量一样，熵以比特度量。方便时我们也可把 $H(X)$ 写作 $H(p)$，$p$ 是向量 $(p_1,p_2,\dots,p_I)$。$X$ 的熵的另一个名字是 $X$ 的 uncertainty（不确定性）。
 
@@ -388,9 +389,9 @@ $$
 - $H(X)\ge0$，等号成立当且仅当某个 $p_i=1$。[「iff」即「当且仅当」。]
 - $p$ 均匀时熵最大：
 
-$$
+```math
 H(X)\le\log(|\mathcal{A}_X|),\quad \text{等号当且仅当 } p_i=1/|\mathcal{A}_X| \text{（所有 } i\text{）}. \tag{2.36}
-$$
+```
 
 > <span style="color:#2471a3;">**[译者注｜记号]** 竖线「$|\cdot|$」有两种含义：$\mathcal{A}_X$ 是集合时，$|\mathcal{A}_X|$ 表示 $\mathcal{A}_X$ 中元素的个数；$x$ 是数时，$|x|$ 是绝对值。</span>
 
@@ -398,23 +399,23 @@ $$
 
 The redundancy（冗余度）度量 $H(X)$ 与其最大可能值 $\log(|\mathcal{A}_X|)$ 之间的相对差。$X$ 的冗余度为
 
-$$
+```math
 1-\frac{H(X)}{\log|\mathcal{A}_X|}. \tag{2.37}
-$$
+```
 
 本书不会用到「冗余度」，所以没有给它分配符号。
 
 $X,Y$ 的 joint entropy（联合熵）为
 
-$$
+```math
 H(X,Y)=\sum_{xy\in\mathcal{A}_X\mathcal{A}_Y}P(x,y)\log\frac{1}{P(x,y)}. \tag{2.38}
-$$
+```
 
 对独立随机变量熵具有可加性：
 
-$$
+```math
 H(X,Y)=H(X)+H(Y) \quad \text{iff } P(x,y)=P(x)P(y). \tag{2.39}
-$$
+```
 
 我们目前的信息含量定义只适用于有限集合 $\mathcal{A}_X$ 上的离散概率分布。定义可以扩展到无限集，不过熵那时可能无穷。连续集合上概率密度的情形在第 11.3 节处理。与熵有关的更多重要定义与习题见第 8.1 节。
 
@@ -426,39 +427,39 @@ $$
 
 先用例子说明。设想随机变量 $x\in\{0,1,2\}$ 的产生方式：先抛一枚均匀硬币决定是否 $x=0$；若 $x\neq0$，再抛一次均匀硬币决定 $x$ 是 1 还是 2。$x$ 的概率分布为
 
-$$
+```math
 P(x=0)=\frac{1}{2};\qquad P(x=1)=\frac{1}{4};\qquad P(x=2)=\frac{1}{4}. \tag{2.40}
-$$
+```
 
 $X$ 的熵是多少？可以暴力计算：
 
-$$
+```math
 H(X)=\frac{1}{2}\log2+\frac{1}{4}\log4+\frac{1}{4}\log4=1.5; \tag{2.41}
-$$
+```
 
 <!-- p.46 -->
 
 也可以用如下分解——$x$ 的值被逐渐揭示。设想先得知是否 $x=0$，然后若 $x\neq0$，再得知是哪个非零值。「是否 $x=0$」的揭示等价于揭示一个分布为 $\{1/2,1/2\}$ 的二元变量，其熵为 $H(1/2,1/2)=\frac{1}{2}\log2+\frac{1}{2}\log2=1$ 比特。若 $x\neq0$，我们得知第二次抛硬币的值——这也是分布 $\{1/2,1/2\}$ 的二元变量，熵 1 比特。但我们只有一半时间会经历第二次揭示，所以熵可写为：
 
-$$
+```math
 H(X)=H(1/2,1/2)+\frac{1}{2}H(1/2,1/2). \tag{2.42}
-$$
+```
 
 推广之，关于任何概率分布 $p=\{p_1,p_2,\dots,p_I\}$ 熵的观察是：
 
-$$
+```math
 H(p)=H(p_1,\,1-p_1)+(1-p_1)\,H\Bigl(\frac{p_2}{1-p_1},\frac{p_3}{1-p_1},\dots,\frac{p_I}{1-p_1}\Bigr). \tag{2.43}
-$$
+```
 
 写成公式时这个性质遗憾地显得丑陋；但它是个简单的性质，应当用起来。进一步推广，熵对任何 $m$ 满足：
 
-$$
+```math
 \begin{aligned}
 H(p)=&\ H[(p_1+p_2+\cdots+p_m),\,(p_{m+1}+p_{m+2}+\cdots+p_I)]\\
 &+(p_1+\cdots+p_m)\,H\Bigl(\frac{p_1}{p_1+\cdots+p_m},\dots,\frac{p_m}{p_1+\cdots+p_m}\Bigr)\\
 &+(p_{m+1}+\cdots+p_I)\,H\Bigl(\frac{p_{m+1}}{p_{m+1}+\cdots+p_I},\dots,\frac{p_I}{p_{m+1}+\cdots+p_I}\Bigr).
 \end{aligned} \tag{2.44}
-$$
+```
 
 <span style="color:#00838f;">**[例 2.13]** 一个源从字母表 $\mathcal{A}=\{0,1,\dots,9,a,b,\dots,z\}$ 产生字符 $x$：以概率 1/3，$x$ 是数字（0–9）；以概率 1/3，$x$ 是元音（a,e,i,o,u）；以概率 1/3，$x$ 是 21 个辅音之一。所有数字等概率，元音与辅音亦然。估计 $X$ 的熵。
 
@@ -472,15 +473,15 @@ $$
 
 定义在同一字母表 $\mathcal{A}_X$ 上的两个概率分布 $P(x)$ 与 $Q(x)$ 之间的 relative entropy（相对熵）或 Kullback–Leibler divergence（Kullback–Leibler 散度）为
 
-$$
+```math
 D_{\mathrm{KL}}(P\|Q)=\sum_xP(x)\log\frac{P(x)}{Q(x)}. \tag{2.45}
-$$
+```
 
 相对熵满足 Gibbs' inequality（Gibbs 不等式）：
 
-$$
+```math
 D_{\mathrm{KL}}(P\|Q)\ge0, \tag{2.46}
-$$
+```
 
 等号仅当 $P=Q$。注意一般情形相对熵在交换分布 $P$ 与 $Q$ 时不对称：一般 $D_{\mathrm{KL}}(P\|Q)\neq D_{\mathrm{KL}}(Q\|P)$，所以 $D_{\mathrm{KL}}$ 虽然有时被称为「KL 距离」，严格来说不是 distance（距离）。相对熵在 pattern recognition（模式识别）与 neural networks（神经网络）中以及在信息论中都重要。
 
@@ -494,9 +495,9 @@ Gibbs 不等式大概是本书中最重要的不等式。它与其他许多不�
 
 **Convex ⌣ 函数（凸函数）。** 若函数 $f(x)$ 的每一条 chord（弦）都位于函数上方（图 2.10），即对所有 $x_1,x_2\in(a,b)$ 与 $0\le\lambda\le1$，
 
-$$
+```math
 f(\lambda x_1+(1-\lambda)x_2)\le\lambda f(x_1)+(1-\lambda)f(x_2), \tag{2.47}
-$$
+```
 
 则称 $f(x)$ 在 $(a,b)$ 上 convex ⌣（凸）。若对所有 $x_1,x_2\in(a,b)$，等号只在 $\lambda=0$ 与 $\lambda=1$ 成立，则 $f$ strictly convex ⌣（严格凸）。concave ⌢（凹）与 strictly concave ⌢（严格凹）函数有类似定义。
 
@@ -509,9 +510,9 @@ $$
 
 **Jensen's inequality（Jensen 不等式）。** 若 $f$ 是凸 ⌣ 函数且 $x$ 是随机变量，则：
 
-$$
+```math
 \mathbb{E}[f(x)]\ge f(\mathbb{E}[x]), \tag{2.48}
-$$
+```
 
 $\mathbb{E}$ 表示 expectation（期望）。若 $f$ 严格凸 ⌣ 且 $\mathbb{E}[f(x)]=f(\mathbb{E}[x])$，则随机变量 $x$ 是常数。
 
@@ -533,9 +534,9 @@ Jensen 不等式的物理版本如下。
 
 **凸性与凹性也和最大化有关。** 若 $f(x)$ 凹 ⌢ 且存在一点使
 
-$$
+```math
 \frac{\partial f}{\partial x_k}=0 \text{ 对所有 } k, \tag{2.49}
-$$
+```
 
 则 $f(x)$ 在该点取最大值。逆命题不成立：若凹 ⌢ 函数 $f(x)$ 在某 $x$ 处最大化，未必有 $\nabla f(x)=0$。例如 $f(x)=-|x|$ 在 $x=0$ 处最大化，但导数在 $x=0$ 处无定义；$f(p)=\log(p)$（$p\in(0,1)$ 的概率）在范围边界 $p=1$ 处最大化，那里 $\mathrm{d}f(p)/\mathrm{d}p=1$。
 
