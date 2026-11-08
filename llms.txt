@@ -1,0 +1,20 @@
+# Information Theory · MacKay ITILA
+
+> Bilingual (EN/中文) study pack for MacKay's Information Theory, Pattern Recognition and Neural Networks lectures, built on the ITILA textbook.
+
+## 讲义与幻灯片
+- [01-lecture-notes](01-lecture-notes): `Lec01`–`Lec16` 加 `prufer` 的逐句双语翻译
+- [02-slides](02-slides): 官方 MagicPoint 讲义 `l1`–`l16`（HTML + PNG 逐页）
+
+## 教材 Textbook
+- [03-textbook](03-textbook): `book.pdf` 与 `book.epub`
+- [03-textbook/deliver](03-textbook/deliver): 教材章节双语翻译
+- [03-textbook/PROGRESS.md](03-textbook/PROGRESS.md): 翻译进度记录
+
+## 板书快照
+- [04-snapshots/00_mackay.pdf](04-snapshots/00_mackay.pdf): 各讲板书快照 PDF
+
+## 备注
+- 课程为剑桥 16 讲 + 1 Bonus（inference.org.uk/itprnn_lectures）；视频本体 11.26 GB 未入库。
+- 正文中文为主，英文术语以 `English term（中文）` 行内嵌入，公式与 LaTeX 保留原样。
+- 版权归 MacKay 遗产与原作者所有。
