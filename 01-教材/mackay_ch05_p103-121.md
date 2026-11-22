@@ -178,11 +178,18 @@ L(C,X)=\sum_ip_il_i. \tag{5.13}
 **证明。** 定义 implicit probabilities（隐式概率）$q_i\equiv2^{-l_i}/z$，其中 $z=\sum_{i'}2^{-l_{i'}}$，于是 $l_i=\log\frac{1}{q_i}-\log z$。然后用 Gibbs 不等式 $\sum_ip_i\log\frac{1}{q_i}\ge\sum_ip_i\log\frac{1}{p_i}$（$q_i=p_i$ 时取等）与 Kraft 不等式 $z\le1$：
 
 ```math
-\begin{aligned}
-L(C,X)&=\sum_ip_il_i=\sum_ip_i\log\frac{1}{q_i}-\log z \tag{5.14}\\
-&\ge\sum_ip_i\log\frac{1}{p_i}-\log z \tag{5.15}\\
-&\ge H(X). \tag{5.16}
-\end{aligned}
+L(C,X)=\sum_ip_il_i=\sum_ip_i\log\frac{1}{q_i}-\log z
+\tag{5.14}
+```
+
+```math
+\phantom{L(C,X)}\ge\sum_ip_i\log\frac{1}{p_i}-\log z
+\tag{5.15}
+```
+
+```math
+\phantom{L(C,X)}\ge H(X).
+\tag{5.16}
 ```
 
 等式 $L(C,X)=H(X)$ 只有在 Kraft 等式 $z=1$ 满足、且码字长度满足 $l_i=\log\frac{1}{p_i}$ 时达到。∎

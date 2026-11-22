@@ -159,11 +159,15 @@ P(a\mid s,F)=\int\mathrm{d}p_a\,P(a\mid p_a)P(p_a\mid s,F). \tag{3.13}
 给定 $p_a$ 时 $a$ 的概率就是 $p_a$，所以
 
 ```math
-\begin{aligned}
-P(a\mid s,F)&=\int\mathrm{d}p_a\,p_a\,\frac{p_a^{F_a}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.14}\\
-&=\int\mathrm{d}p_a\,\frac{p_a^{F_a+1}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.15}\\
-&=\Bigl[\frac{(F_a+1)!\,F_b!}{(F_a+F_b+2)!}\Bigr]\Bigl[\frac{F_a!\,F_b!}{(F_a+F_b+1)!}\Bigr]^{-1}=\frac{F_a+1}{F_a+F_b+2}, \tag{3.16}
-\end{aligned}
+P(a\mid s,F)=\int\mathrm{d}p_a\,p_a\,\frac{p_a^{F_a}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.14}
+```
+
+```math
+\phantom{P(a\mid s,F)}=\int\mathrm{d}p_a\,\frac{p_a^{F_a+1}(1-p_a)^{F_b}}{P(s\mid F)} \tag{3.15}
+```
+
+```math
+\phantom{P(a\mid s,F)}=\Bigl[\frac{(F_a+1)!\,F_b!}{(F_a+F_b+2)!}\Bigr]\Bigl[\frac{F_a!\,F_b!}{(F_a+F_b+1)!}\Bigr]^{-1}=\frac{F_a+1}{F_a+F_b+2}, \tag{3.16}
 ```
 
 这就是著名的 Laplace's rule（拉普拉斯法则）。
