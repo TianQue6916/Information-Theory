@@ -32,7 +32,7 @@
 
 | 目录 | 内容 |
 |---|---|
-| `01-教材/` | 原书 PDF/EPUB（`mackay_ch01.pdf`、`book.epub`）+ 逐章切片双语译文 `mackay_ch01_p015-033.md`–`mackay_ch06_p122-143.md` + 各章 exercises 抽取稿，平铺无子目录 |
+| `01-教材/` | 原书 PDF/EPUB（`mackay_itila_full.pdf`、`book.epub`）+ 逐章切片双语译文 `mackay_ch01_p015-033.md`–`mackay_ch06_p122-143.md` + 各章 exercises 抽取稿，平铺无子目录 |
 | `02-讲义/` | 讲义逐句双语译文 `Lec01`–`Lec16`、`prufer.md`；官方 MagicPoint 讲义原文 `l1`–`l16`、`prufer`（HTML + PNG）；`fig/` 配图源资产 |
 | `02-讲义/板书快照/` | 各讲板书快照 PDF `00_mackay.pdf`–`16_mackay.pdf` + 下载清单（原 `04-snapshots/`） |
 | `03-已处理文件/` | 疑问驱动的 AI 资料（原 `06-笔记/`：`PROGRESS.md`、`来源与课程说明.md`） |
